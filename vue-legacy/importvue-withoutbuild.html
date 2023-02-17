@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{ message }}</div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "vue" : "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+                "company" : "./src/withoutbuild.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import * as vue from 'vue';
+        import { name, getName } from 'company';
+
+        vue.createApp(
+            {
+                data() {
+                    return {
+                        message: 'hello ' + name
+                    }
+                }
+            }
+        ).mount('#app');
+
+        console.log();
+    </script>
+</body>
+
+</html>
